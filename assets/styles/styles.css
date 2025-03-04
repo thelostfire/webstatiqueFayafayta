@@ -1,6 +1,7 @@
 :root {
     --article-width: 17rem;
     --title-footer-bg-color: #102223;
+    --max-width-section: 425px;
 }
 
 html {
@@ -69,6 +70,10 @@ html {
 
 
         main {
+            >* {
+                margin: 2rem;
+                text-align: left;
+            }
             h2 {
                 font-size: 1.2rem;
                 padding: 0.3rem 2rem;
@@ -89,8 +94,12 @@ html {
 
 
             div {
+                section {
+                    margin: 2rem;
+                }
                 @media(min-width: 768px) {
                     display: flex;
+                    justify-content: space-around;
                 }
 
                 a {
@@ -99,8 +108,7 @@ html {
                 }
 
                 section#latestNews {
-                    margin: 2rem;
-                    max-width: 650px;
+                    max-width: var(--max-width-section);
 
                     h2 {
                         width: var(--article-width)*2;
@@ -111,7 +119,8 @@ html {
 
                         ul {
                             padding: 0;
-                            justify-content: left;
+                            display: flex;
+                            justify-content: space-between;
                         }
 
                         article {
@@ -140,7 +149,10 @@ html {
                 }
 
                 section#leadStory {
-                    margin: 2rem;
+                    max-width: var(--max-width-section);
+                    @media (min-width: 768px) {
+                        width: 250px;
+                    }
 
                     article {
                         margin: 3rem 0;
@@ -167,12 +179,7 @@ html {
 
                 section#gallery {
                     padding: 2rem 0;
-                    width: 30rem;
-                    margin: 2rem;
-
-                    @media (max-width: 768px) {
-                        margin: auto;
-                    }
+                    max-width: var(--max-width-section);
 
                     h2 {
                         margin: 0;
@@ -193,11 +200,11 @@ html {
 
                 section#connectWithUs {
                     text-align: center;
-                    width: 30rem;
                     padding: 2rem 0;
+                    max-width: var(--max-width-section);
 
-                    @media(max-width: 768px) {
-                        margin: auto;
+                    @media (min-width: 768px) {
+                        width: 250px;
                     }
 
                     h2 {
@@ -208,8 +215,8 @@ html {
                         margin: 0;
                         padding: 1rem 3rem;
                         background-color: #346264;
-                        display: flex;
-                        justify-content: space-evenly;
+                        flex-direction: row;
+                      
 
                         a {
                             color: white;
@@ -224,6 +231,9 @@ html {
             display: flex;
             justify-content: space-between;
             background-color: var(--title-footer-bg-color);
+            @media (max-width: 470px) {
+                font-size: 0.7rem;
+            }
 
             p {
                 color: white;
